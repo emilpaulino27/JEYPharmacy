@@ -27,7 +27,7 @@
       <div class="hero_area">
 
          <!-- header section strats -->
-         @include('home.header')
+         @include('layouts.app')
          <!-- end header section -->
 
          <!-- slider section -->

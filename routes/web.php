@@ -16,3 +16,8 @@ Route::get('/', function () {
     return view('home.userpage');
 });
 
+Route::get('/productos', function () {
+    return view('productos');
+})->name('productos');
+
+

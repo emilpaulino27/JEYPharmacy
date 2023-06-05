@@ -216,7 +216,8 @@
                    </h5>
                    <p>
                       Te llevamos tu pedido sin costo alguno
-                   </p>
+                   </p> 
+                  </br> 
                 </div>
              </div>
           </div>

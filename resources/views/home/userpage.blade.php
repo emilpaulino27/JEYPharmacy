@@ -10,7 +10,6 @@
       <meta name="keywords" content="" />
       <meta name="description" content="" />
       <meta name="author" content="" />
-      <link rel="shortcut icon" href="images/favicon.png" type="">
       <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
       <title>JEY Pharmacy</title>
       <!-- bootstrap core css -->

@@ -33,7 +33,7 @@
 <div class="hero_area">
 
     <!-- header section strats -->
-    @include('layouts.app')
+    @include('home.header')
     <!-- end header section -->
 
     <section class="slider_section">

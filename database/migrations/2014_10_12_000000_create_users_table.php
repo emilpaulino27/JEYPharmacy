@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('telefono');
             $table->string('password');
+            $table->string('rol')->default('cliente');
             $table->rememberToken();
             $table->timestamps();
         });

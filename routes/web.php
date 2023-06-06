@@ -16,8 +16,12 @@ Route::get('/', function () {
     return view('home.userpage');
 });
 
-Route::get('/productos', function () {
+/*Route::get('/productos-view', function () {
     return view('productos');
-})->name('productos');
+})->name('productos-view');*/
 
+
+
+Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
+Route::get('/products-view', [App\Http\Controllers\ProductoController::class, 'productVw'])->name('productos-view')->middleware('auth');
 

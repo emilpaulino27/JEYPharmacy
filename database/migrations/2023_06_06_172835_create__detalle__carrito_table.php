@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_detalle__carrito', function (Blueprint $table) {
-            $table->id('Id_detalleCarirto');
+        Schema::create('detalle__carrito', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('Id_carrito_compra');
             $table->unsignedBigInteger('Id_producto');
             $table->string('Cantidad_producto');

@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id('Id_pedido');
+            $table->id();
             $table->id('Id_usuario');
             $table->dateTime('Fecha_pedido');
             $table->string('Direccion');
             $table->unsignedBigInteger('Estado_pedido');
             $table->string('Opcion_pago');
              $table->timestamps();
-            $table->foreign('Id_estado_pedido')->references('id')->on('estado_pedido');
+            $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
         });
     }
 

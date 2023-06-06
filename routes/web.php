@@ -12,9 +12,11 @@ Auth::routes();
 
 //Route::get('/redirect', [HomeController::class, 'redirect']);
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home.userpage');
 });
+*/
+Route::get('/', [App\Http\Controllers\ProductoController::class, 'mostrarProductos']);
 
 /*Route::get('/productos-view', function () {
     return view('productos');

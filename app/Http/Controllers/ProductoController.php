@@ -32,6 +32,13 @@ class ProductoController extends Controller
         return view('productos', compact('products'));
     }
 
+    public function mostrarProductos()
+    {
+        $productos = Producto::limit(6)->get(); // Obtener los primeros 6 productos
+
+        return view('home.userpage', compact('productos'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -68,11 +75,15 @@ class ProductoController extends Controller
 
         $producto = new Producto;
         $producto->imagen = $filename;
+        $producto->marca = $request->input('marca');
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
         $producto->precio = $request->input('precio');
         $producto->id_categoria = $request->input('id_categoria');
         $producto->cant_disponible = $request->input('cant_disponible');
+        $producto->presentacion = $request->input('presentacion');
+        $producto->fecha_vencimiento = $request->input('fecha_vencimiento');
+        $producto->restriccion = $request->input('restriccion');
         $producto->save();
 
         return redirect()->route('productos.index')
@@ -133,11 +144,15 @@ class ProductoController extends Controller
         }
 
         $producto->imagen = $filename;
+        $producto->marca = $request->input('marca');
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
         $producto->precio = $request->input('precio');
         $producto->id_categoria = $request->input('id_categoria');
         $producto->cant_disponible = $request->input('cant_disponible');
+        $producto->presentacion = $request->input('presentacion');
+        $producto->fecha_vencimiento = $request->input('fecha_vencimiento');
+        $producto->restriccion = $request->input('restriccion');
         $producto->save();
         
         return redirect()->route('productos.index')

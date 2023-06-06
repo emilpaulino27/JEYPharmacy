@@ -25,6 +25,40 @@
         #link {
         text-decoration: none;
         }
+
+        .search{
+       position: relative;
+       box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+         
+       }
+
+       .search input{
+
+        height: 60px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+
+
+       }
+
+
+       .search input:focus{
+
+        box-shadow: none;
+        border: 2px solid #002c3e;
+
+
+       }
+
+       .search .fa-search{
+
+        position: absolute;
+        top: 20px;
+        left: 16px;
+
+       }
+
+
     </style>
 
  </head>
@@ -73,6 +107,25 @@
             <h2 class="pt-5">
                 Lista de <span>productos</span>
              </h2>
+
+
+             <!-- Search Bar -->
+
+             <div class="container pt-3">
+
+                <div class="row height d-flex justify-content-center align-items-center">
+
+                  <div class="col-md-8">
+
+                    <div class="search">
+                      <i class="fa fa-search"></i>
+                      <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+
 
              <section class="">
                 <div class="container px-4 px-lg-5 mt-5">

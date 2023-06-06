@@ -29,7 +29,6 @@
         .search{
        position: relative;
        box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-         
        }
 
        .search input{
@@ -37,17 +36,12 @@
         height: 60px;
         text-indent: 25px;
         border: 2px solid #d6d4d4;
-
-
        }
-
 
        .search input:focus{
 
         box-shadow: none;
         border: 2px solid #002c3e;
-
-
        }
 
        .search .fa-search{
@@ -55,7 +49,6 @@
         position: absolute;
         top: 20px;
         left: 16px;
-
        }
 
 

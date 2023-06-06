@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('productos');
 })->name('productos-view');*/
 
-
+Route::get('/detalle_productos', function () {
+    return view('detalle_productos');
+})->name('detalle_productos');
 
 Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 Route::get('/products-view', [App\Http\Controllers\ProductoController::class, 'productVw'])->name('productos-view')->middleware('auth');

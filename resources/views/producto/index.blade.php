@@ -37,10 +37,12 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Descripción</th>
+										<th>Marca</th>
 										<th>Precio</th>
 										<th>Categoría</th>
 										<th>Cantidad Disponible</th>
+										<th>Presentación</th>
+										<th>Restricción</th>
 
                                         <th></th>
                                     </tr>
@@ -51,10 +53,12 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $producto->nombre }}</td>
-											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
+											<td>{{ $producto->marca }}</td>
+											<td>RD${{ $producto->precio }}.00 p/u</td>
 											<td>{{ $producto->categoria->nombre }}</td>
 											<td>{{ $producto->cant_disponible }}</td>
+											<td>{{ $producto->presentacion }}</td>
+											<td>{{ $producto->restriccion }}+</td>
 
                                             <td>
                                                 <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">

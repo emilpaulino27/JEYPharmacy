@@ -26,6 +26,12 @@ class ProductoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
+    public function productVw()
+    {
+        $products = Producto::all();
+        return view('productos', compact('products'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -112,7 +118,6 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id);
 
-        //request()->validate(Producto::$rules);
         // Obtener el archivo del formulario
         $file = $request->file('imagen');
 
@@ -146,9 +151,24 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::find($id)->delete();
+        // Obtén el producto que se va a eliminar
+        $producto = Producto::find($id);
 
+        // Verifica si el producto existe
+        if ($producto) {
+            // Elimina la foto del storage
+            Storage::delete('public/images/' . $producto->imagen);
+
+            // Elimina el producto de la base de datos
+            $producto->delete();
+
+            // Redirige a la ruta de productos.index con un mensaje de éxito
+            return redirect()->route('productos.index')
+                ->with('success', 'Producto deleted successfully');
+        }
+
+        // Si el producto no existe, redirige con un mensaje de error
         return redirect()->route('productos.index')
-            ->with('success', 'Producto deleted successfully');
+            ->with('error', 'Producto not found');
     }
 }

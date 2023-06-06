@@ -21,14 +21,19 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::paginate();
-
         return view('producto.index', compact('productos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
-    public function productVw()
+    public function productVw(Request $request)
     {
-        $products = Producto::all();
+        $search = $request->input('search');
+        $products = Producto::where('nombre', 'like', '%'.$search.'%')
+                        ->orWhere('marca', 'like', '%'.$search.'%')
+                        ->orWhereHas('categoria', function ($query) use ($search) {
+                            $query->where('nombre', 'like', '%'.$search.'%');
+                        })
+                        ->get();
         return view('productos', compact('products'));
     }
 

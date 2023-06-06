@@ -112,21 +112,23 @@
              <!-- Search Bar -->
 
              <div class="container pt-3">
-
                 <div class="row height d-flex justify-content-center align-items-center">
-
-                  <div class="col-md-8">
-
-                    <div class="search">
-                      <i class="fa fa-search"></i>
-                      <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+                    <div class="col-md-8">
+                        <form action="{{ route('productos-view') }}" method="GET" class="search">
+                            <i class="fa fa-search"></i>
+                            <input type="text" class="form-control" placeholder="¿Qué estás buscando?" name="search" value="{{ Request::get('search') }}">
+                        </form>
                     </div>
-                    
-                  </div>
                 </div>
             </div>
 
-
+            @if(count($products)<=0)
+            <div class="card">
+                <div class="card-body">
+                  There are no results
+                </div>
+              </div>   
+            @else
              <section class="">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -156,6 +158,7 @@
             </section>
             
             </section>
+            @endif
 
         </div>
     </div>

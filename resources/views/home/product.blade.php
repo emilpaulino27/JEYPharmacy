@@ -14,7 +14,7 @@
                          <a href="" class="option1">
                              Añadir al carrito
                          </a>
-                         <a href="" class="option2">
+                         <a href="{{ route('productos-detail', $producto->id) }}" class="option2">
                              Ver más
                          </a>
                      </div>

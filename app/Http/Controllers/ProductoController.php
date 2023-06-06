@@ -43,7 +43,13 @@ class ProductoController extends Controller
 
         return view('home.userpage', compact('productos'));
     }
+    public function showDetail($id)
+    {
+        $producto = Producto::find($id);
+        $moreProducts = Producto::inRandomOrder()->limit(4)->get();
 
+        return view('detalle_productos', compact('producto', 'moreProducts'));
+    }
     /**
      * Show the form for creating a new resource.
      *

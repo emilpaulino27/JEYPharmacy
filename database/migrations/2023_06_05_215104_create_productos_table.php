@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->integer('precio');
-            $table->unsignedBigInteger('Id_categoria');
+            $table->unsignedBigInteger('id_categoria');
             $table->integer('cant_disponible');
             $table->string('presentacion');
             $table->date('fecha_vencimiento');

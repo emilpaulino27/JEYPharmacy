@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->id('Id_usuario');
+            $table->unsignedBigInteger('id_usuario');
             $table->dateTime('Fecha_pedido');
             $table->string('Direccion');
             $table->unsignedBigInteger('Estado_pedido');
             $table->string('Opcion_pago');
              $table->timestamps();
-            $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
-        });
+             $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
+             $table->foreign('id_usuario')->references('id')->on('users');
+            });
     }
 
     /**

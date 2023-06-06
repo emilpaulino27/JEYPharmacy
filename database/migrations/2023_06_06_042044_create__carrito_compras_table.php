@@ -17,7 +17,7 @@ return new class extends Migration
             $table->dateTime('Fecha');
             $table->string('Estado_carrito');
             $table->timestamps();
-            $table->foreign('Id_usuario')->references('Id_usuario')->on('users');
+            $table->foreign('Id_usuario')->references('id')->on('users');
         });
     }
 

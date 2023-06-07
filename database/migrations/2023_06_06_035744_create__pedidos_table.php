@@ -18,9 +18,12 @@ return new class extends Migration
             $table->string('Direccion');
             $table->unsignedBigInteger('Estado_pedido');
             $table->string('Opcion_pago');
-             $table->timestamps();
-             $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
-             $table->foreign('id_usuario')->references('id')->on('users');
+            $table->int('Subtotal');
+            $table->float('itbis');
+            $table->float('Total');
+            $table->timestamps();
+            $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
+            $table->foreign('id_usuario')->references('id')->on('users');
             });
     }
 

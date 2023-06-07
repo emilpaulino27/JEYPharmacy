@@ -89,7 +89,7 @@
             <!-- header section strats -->
             @include('home.header')
             <!-- end header section -->
-        </div>
+        
             <section class="slider_section">
             <div class="slider_bg_box">
                 <img src="images/arrival.jpg" alt="">
@@ -173,7 +173,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><a href="" id="link">{{$item->nombre}}</a></h5>
+                                        <h5 class="fw-bolder"><a href="{{ route('productos-detail', $item->id) }}" id="link">{{$item->nombre}}</a></h5>
 
                                     </div>
                                 </div>
@@ -185,6 +185,7 @@
                     </div>
 
                 </div>
+            </div>
             </section>
 
 

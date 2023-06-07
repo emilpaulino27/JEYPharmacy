@@ -134,7 +134,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><a href="" id="link">{{ $producto->nombre }}</a></h5>
+                                        <h5 class="fw-bolder"><a href="{{ route('productos-detail', $producto->id) }}" id="link">{{ $producto->nombre }}</a></h5>
                                         <!-- Product price-->
                                         RD${{ $producto->precio }}
                                     </div>

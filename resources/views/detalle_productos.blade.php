@@ -14,13 +14,13 @@
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     <title>JEY Pharmacy</title>
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('home/css/bootstrap.css') }}" />
     <!-- font awesome style -->
-    <link href="home/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{{ asset('home/css/font-awesome.min.css') }}" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="home/css/style.css" rel="stylesheet" />
+    <link href="{{ asset('home/css/style.css') }}" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="home/css/responsive.css" rel="stylesheet" />
+    <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
     <!--bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -89,15 +89,17 @@
             <!-- header section strats -->
             @include('home.header')
             <!-- end header section -->
-        </div>
+
             <section class="slider_section">
-            <div class="slider_bg_box">
-                <img src="images/arrival.jpg" alt="">
-            </div>
+                <div class="slider_bg_box">
+                    <img src="{{ asset('images/fondo3.jpeg') }}" alt="">
+                </div>
             </section>
-
-
-            <div class="container pt-4">
+            
+            
+        </div>
+        
+            <div class="container pt-3">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">{{$producto->nombre}}</h3>

@@ -26,7 +26,14 @@ Route::get('/detalle_productos', function () {
     return view('detalle_productos');
 })->name('detalle_productos');*/
 
+Route::get('/carrito', function () {
+    return view('carrito');
+})->name('carrito');
+
 Route::resource('productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 Route::get('/products-view', [App\Http\Controllers\ProductoController::class, 'productVw'])->name('productos-view');
 Route::get('/products-detail/{id}', [App\Http\Controllers\ProductoController::class, 'showDetail'])->name('productos-detail');
+
+Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
+
 

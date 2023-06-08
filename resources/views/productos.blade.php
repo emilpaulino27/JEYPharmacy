@@ -141,7 +141,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-success mt-auto" href="#">Añadir al carrito</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-success mt-auto" href="{{ route('carrito.agregar-producto', ['producto_id' => $producto->id, 'cantidad' => 1]) }}">Añadir al carrito</a></div>
                                 </div>
                             </div>
                         </div>

@@ -18,9 +18,16 @@ return new class extends Migration
             $table->string('Direccion');
             $table->unsignedBigInteger('Estado_pedido');
             $table->string('Opcion_pago');
-            $table->int('Subtotal');
+            $table->integer('Subtotal');
             $table->float('itbis');
             $table->float('Total');
+            $table->string('Titular_tarjeta');
+            $table->String('Numero_tarjeta');
+            $table->integer('CVV');
+            $table->string('Fecha_expiracion');
+            $table->float('Monto_efectivo');
+            $table->float('Cambio');
+            $table->text('Comentarios')->nullable();
             $table->timestamps();
             $table->foreign('Estado_pedido')->references('id')->on('estado_pedido');
             $table->foreign('id_usuario')->references('id')->on('users');
@@ -32,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_pedidos');
+        Schema::dropIfExists('pedidos');
     }
 };

@@ -115,12 +115,16 @@
                                     RD${{$producto->precio}}.00 p/u
                                 </h2>
                                 <div class="form-group">
+                                    <form action="{{ route('carrito.agregar-producto-con-cantidad') }}" method="POST">
+                                    <input type="hidden" name="producto_id" value="{{ $producto->id }}">
+                                    @csrf
                                     <label>Cantidad</label>
-                                    <input type="number" placeholder="1" class="form-control mb-2" style="width: 100px;" value="1">
+                                    <input type="number" name="cantidad" placeholder="1" class="form-control mb-2" style="width: 100px;" value="1">
                                 </div>
-                                <button class="btn btn-rounded mr-1" id="btn" data-toggle="tooltip" title="" data-original-title="Add to cart">
+                                <button type="submit" class="btn btn-rounded mr-1" id="btn" data-toggle="tooltip" title="" data-original-title="Add to cart">
                                     <i class="fa fa-shopping-cart"></i>
                                 </button>
+                                </form>
                                 <button class="btn btn-primary btn-rounded" id="btn2">Comprar ahora</button>
                                 <h3 class="box-title mt-5">Calidad de los productos asegurada</h3>
                                 <ul class="list-unstyled">

@@ -11,7 +11,7 @@
              <div class="box">
                  <div class="option_container">
                      <div class="options">
-                         <a href="" class="option1">
+                         <a href="{{ route('carrito.agregar-producto', ['producto_id' => $producto->id, 'cantidad' => 1]) }}" class="option1">
                              Añadir al carrito
                          </a>
                          <a href="{{ route('productos-detail', $producto->id) }}" class="option2">

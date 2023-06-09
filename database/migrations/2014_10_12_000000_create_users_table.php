@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('rol')->default('cliente');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

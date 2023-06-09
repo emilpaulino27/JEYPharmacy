@@ -15,9 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('Id_carrito_compra');
             $table->unsignedBigInteger('Id_producto');
-            $table->string('Cantidad_producto');
+            $table->integer('Cantidad_producto');
+            $table->integer('Precio_unitario');
             $table->timestamps();
+<<<<<<< HEAD
             $table->foreign('Id_carrito_compra')->references('Id_carrito_compra')->on('carrito_compras');
+=======
+            $table->foreign('Id_carrito_compra')->references('id')->on('carrito_compras');
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
             $table->foreign('Id_producto')->references('id')->on('productos');
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -55,4 +56,24 @@ class DetalleCarrito extends Model
     }
     
 
+=======
+use App\Producto;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class DetalleCarrito extends Model
+{
+    use HasFactory;
+    protected $table = 'detalle__carrito';
+
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class, 'Id_producto');
+    }
+
+    public function precioTotal()
+    {
+        return $this->cantidad_producto * $this->precio_unitario;
+    }
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
 }

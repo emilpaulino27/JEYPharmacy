@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('Id_usuario');
             $table->dateTime('Fecha');
-            $table->string('Estado_carrito');
+            $table->string('Estado_carrito')->default('Activo');
             $table->timestamps();
             $table->foreign('Id_usuario')->references('id')->on('users');
         });

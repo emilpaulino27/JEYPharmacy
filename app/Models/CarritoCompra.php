@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -56,4 +57,17 @@ class CarritoCompra extends Model
     }
     
 
+=======
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class CarritoCompra extends Model
+{
+    use HasFactory;
+    protected $fillable = ['Id_usuario', 'Fecha'];
+    public function detallesCarrito()
+    {
+        return $this->hasMany(DetalleCarrito::class, 'Id_carrito_compra');
+    }
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
 }

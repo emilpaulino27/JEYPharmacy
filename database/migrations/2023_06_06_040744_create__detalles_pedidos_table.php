@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('Id_pedido');
             $table->unsignedBigInteger('Id_producto');
             $table->Integer('Cantidad_producto_pedido');
+            $table->Integer('Precio_unitario');
             $table->timestamps();
-            $table->foreign('Id_pedido')->references('Id_pedido')->on('pedidos');
-            $table->foreign('Id_producto')->references('Id_producto')->on('productos');
+            $table->foreign('Id_pedido')->references('id')->on('pedidos');
+            $table->foreign('Id_producto')->references('id')->on('productos');
         });
     }
 

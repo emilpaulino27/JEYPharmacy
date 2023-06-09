@@ -38,10 +38,19 @@
                                         
 										<th>Imagen</th>
 										<th>Nombre</th>
+<<<<<<< HEAD
 										<th>Descripcion</th>
 										<th>Precio</th>
 										<th>Id Categoria</th>
 										<th>Cant Disponible</th>
+=======
+										<th>Marca</th>
+										<th>Precio</th>
+										<th>Categoría</th>
+										<th>Cantidad Disponible</th>
+										<th>Presentación</th>
+										<th>Restricción</th>
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
 
                                         <th></th>
                                     </tr>
@@ -53,10 +62,18 @@
                                             
 											<td>{{ $producto->imagen }}</td>
 											<td>{{ $producto->nombre }}</td>
+<<<<<<< HEAD
 											<td>{{ $producto->descripcion }}</td>
 											<td>{{ $producto->precio }}</td>
 											<td>{{ $producto->Id_categoria }}</td>
+=======
+											<td>{{ $producto->marca }}</td>
+											<td>RD${{ $producto->precio }}.00 p/u</td>
+											<td>{{ $producto->categoria->nombre }}</td>
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
 											<td>{{ $producto->cant_disponible }}</td>
+											<td>{{ $producto->presentacion }}</td>
+											<td>{{ $producto->restriccion }}+</td>
 
                                             <td>
                                                 <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">

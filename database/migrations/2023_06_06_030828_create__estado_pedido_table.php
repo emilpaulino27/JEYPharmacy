@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('estado_pedido', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->string('Descripcion_pedido');
+=======
+            $table->string('descripcion');
+>>>>>>> 7e22deddf3de6d648bdf74d4a083b12d843c379f
             $table->timestamps();
         });
     }

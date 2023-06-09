@@ -29,7 +29,6 @@
         .search{
        position: relative;
        box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-         
        }
 
        .search input{
@@ -37,17 +36,12 @@
         height: 60px;
         text-indent: 25px;
         border: 2px solid #d6d4d4;
-
-
        }
-
 
        .search input:focus{
 
         box-shadow: none;
         border: 2px solid #002c3e;
-
-
        }
 
        .search .fa-search{
@@ -55,7 +49,6 @@
         position: absolute;
         top: 20px;
         left: 16px;
-
        }
 
 
@@ -112,21 +105,23 @@
              <!-- Search Bar -->
 
              <div class="container pt-3">
-
                 <div class="row height d-flex justify-content-center align-items-center">
-
-                  <div class="col-md-8">
-
-                    <div class="search">
-                      <i class="fa fa-search"></i>
-                      <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+                    <div class="col-md-8">
+                        <form action="{{ route('productos-view') }}" method="GET" class="search">
+                            <i class="fa fa-search"></i>
+                            <input type="text" class="form-control" placeholder="¿Qué estás buscando?" name="search" value="{{ Request::get('search') }}">
+                        </form>
                     </div>
-                    
-                  </div>
                 </div>
             </div>
 
-
+            @if(count($products)<=0)
+            <div class="card">
+                <div class="card-body">
+                  There are no results
+                </div>
+              </div>   
+            @else
              <section class="">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -139,14 +134,14 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><a href="" id="link">{{ $producto->nombre }}</a></h5>
+                                        <h5 class="fw-bolder"><a href="{{ route('productos-detail', $producto->id) }}" id="link">{{ $producto->nombre }}</a></h5>
                                         <!-- Product price-->
                                         RD${{ $producto->precio }}
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-success mt-auto" href="#">Añadir al carrito</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-success mt-auto" href="{{ route('carrito.agregar-producto', ['producto_id' => $producto->id, 'cantidad' => 1]) }}">Añadir al carrito</a></div>
                                 </div>
                             </div>
                         </div>
@@ -156,6 +151,7 @@
             </section>
             
             </section>
+            @endif
 
         </div>
     </div>

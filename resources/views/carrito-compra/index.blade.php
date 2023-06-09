@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Producto
+    Carrito Compra
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Producto') }}
+                                {{ __('Carrito Compra') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('carrito-compras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,32 +36,28 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Imagen</th>
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
-										<th>Id Categoria</th>
-										<th>Cant Disponible</th>
+										<th>Id Carrito Compra</th>
+										<th>Id Usuario</th>
+										<th>Fecha</th>
+										<th>Estado Carrito</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productos as $producto)
+                                    @foreach ($carritoCompras as $carritoCompra)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $producto->imagen }}</td>
-											<td>{{ $producto->nombre }}</td>
-											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
-											<td>{{ $producto->Id_categoria }}</td>
-											<td>{{ $producto->cant_disponible }}</td>
+											<td>{{ $carritoCompra->Id_carrito_compra }}</td>
+											<td>{{ $carritoCompra->Id_usuario }}</td>
+											<td>{{ $carritoCompra->Fecha }}</td>
+											<td>{{ $carritoCompra->Estado_carrito }}</td>
 
                                             <td>
-                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('carrito-compras.destroy',$carritoCompra->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('carrito-compras.show',$carritoCompra->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('carrito-compras.edit',$carritoCompra->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -74,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $productos->links() !!}
+                {!! $carritoCompras->links() !!}
             </div>
         </div>
     </div>

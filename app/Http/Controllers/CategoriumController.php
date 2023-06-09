@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Categorium;
 use Illuminate\Http\Request;
 
 /**
- * Class ProductoController
+ * Class CategoriumController
  * @package App\Http\Controllers
  */
-class ProductoController extends Controller
+class CategoriumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate();
+        $categoria = Categorium::paginate();
 
-        return view('producto.index', compact('productos'))
-            ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
+        return view('categorium.index', compact('categoria'))
+            ->with('i', (request()->input('page', 1) - 1) * $categoria->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $categorium = new Categorium();
+        return view('categorium.create', compact('categorium'));
     }
 
     /**
@@ -43,12 +43,12 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Categorium::$rules);
 
-        $producto = Producto::create($request->all());
+        $categorium = Categorium::create($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto created successfully.');
+        return redirect()->route('categoria.index')
+            ->with('success', 'Categorium created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $producto = Producto::find($id);
+        $categorium = Categorium::find($id);
 
-        return view('producto.show', compact('producto'));
+        return view('categorium.show', compact('categorium'));
     }
 
     /**
@@ -72,26 +72,26 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = Producto::find($id);
+        $categorium = Categorium::find($id);
 
-        return view('producto.edit', compact('producto'));
+        return view('categorium.edit', compact('categorium'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Producto $producto
+     * @param  Categorium $categorium
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Categorium $categorium)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Categorium::$rules);
 
-        $producto->update($request->all());
+        $categorium->update($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto updated successfully');
+        return redirect()->route('categoria.index')
+            ->with('success', 'Categorium updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::find($id)->delete();
+        $categorium = Categorium::find($id)->delete();
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto deleted successfully');
+        return redirect()->route('categoria.index')
+            ->with('success', 'Categorium deleted successfully');
     }
 }

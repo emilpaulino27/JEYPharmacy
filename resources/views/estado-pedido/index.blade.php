@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Producto
+    Estado Pedido
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Producto') }}
+                                {{ __('Estado Pedido') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('estado-pedidos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,32 +36,24 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Imagen</th>
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
-										<th>Id Categoria</th>
-										<th>Cant Disponible</th>
+										<th>Id Estado Pedido</th>
+										<th>Descripcion Pedido</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productos as $producto)
+                                    @foreach ($estadoPedidos as $estadoPedido)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $producto->imagen }}</td>
-											<td>{{ $producto->nombre }}</td>
-											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
-											<td>{{ $producto->Id_categoria }}</td>
-											<td>{{ $producto->cant_disponible }}</td>
+											<td>{{ $estadoPedido->Id_estado_pedido }}</td>
+											<td>{{ $estadoPedido->Descripcion_pedido }}</td>
 
                                             <td>
-                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('estado-pedidos.destroy',$estadoPedido->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('estado-pedidos.show',$estadoPedido->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('estado-pedidos.edit',$estadoPedido->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -74,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $productos->links() !!}
+                {!! $estadoPedidos->links() !!}
             </div>
         </div>
     </div>

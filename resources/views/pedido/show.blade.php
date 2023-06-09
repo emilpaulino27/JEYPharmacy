@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $producto->name ?? "{{ __('Show') Producto" }}
+    {{ $pedido->name ?? "{{ __('Show') Pedido" }}
 @endsection
 
 @section('content')
@@ -11,38 +11,38 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Producto</span>
+                            <span class="card-title">{{ __('Show') }} Pedido</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('pedidos.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $producto->imagen }}
+                            <strong>Id Pedido:</strong>
+                            {{ $pedido->Id_pedido }}
                         </div>
                         <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $producto->nombre }}
+                            <strong>Id Usuario:</strong>
+                            {{ $pedido->Id_usuario }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $producto->descripcion }}
+                            <strong>Fecha Pedido:</strong>
+                            {{ $pedido->Fecha_pedido }}
                         </div>
                         <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $producto->precio }}
+                            <strong>Direccion:</strong>
+                            {{ $pedido->Direccion }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Categoria:</strong>
-                            {{ $producto->Id_categoria }}
+                            <strong>Estado Pedido:</strong>
+                            {{ $pedido->Estado_pedido }}
                         </div>
                         <div class="form-group">
-                            <strong>Cant Disponible:</strong>
-                            {{ $producto->cant_disponible }}
+                            <strong>Opcion Pago:</strong>
+                            {{ $pedido->Opcion_pago }}
                         </div>
 
                     </div>

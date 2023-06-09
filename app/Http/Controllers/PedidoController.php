@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 /**
- * Class ProductoController
+ * Class PedidoController
  * @package App\Http\Controllers
  */
-class ProductoController extends Controller
+class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate();
+        $pedidos = Pedido::paginate();
 
-        return view('producto.index', compact('productos'))
-            ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
+        return view('pedido.index', compact('pedidos'))
+            ->with('i', (request()->input('page', 1) - 1) * $pedidos->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $pedido = new Pedido();
+        return view('pedido.create', compact('pedido'));
     }
 
     /**
@@ -43,12 +43,12 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Pedido::$rules);
 
-        $producto = Producto::create($request->all());
+        $pedido = Pedido::create($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto created successfully.');
+        return redirect()->route('pedidos.index')
+            ->with('success', 'Pedido created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $producto = Producto::find($id);
+        $pedido = Pedido::find($id);
 
-        return view('producto.show', compact('producto'));
+        return view('pedido.show', compact('pedido'));
     }
 
     /**
@@ -72,26 +72,26 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = Producto::find($id);
+        $pedido = Pedido::find($id);
 
-        return view('producto.edit', compact('producto'));
+        return view('pedido.edit', compact('pedido'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Producto $producto
+     * @param  Pedido $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Pedido $pedido)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Pedido::$rules);
 
-        $producto->update($request->all());
+        $pedido->update($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto updated successfully');
+        return redirect()->route('pedidos.index')
+            ->with('success', 'Pedido updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::find($id)->delete();
+        $pedido = Pedido::find($id)->delete();
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto deleted successfully');
+        return redirect()->route('pedidos.index')
+            ->with('success', 'Pedido deleted successfully');
     }
 }

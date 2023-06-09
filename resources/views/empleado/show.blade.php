@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $producto->name ?? "{{ __('Show') Producto" }}
+    {{ $empleado->Nombre ?? "{{ __('Show') Empleado" }}
 @endsection
 
 @section('content')
@@ -11,38 +11,34 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Producto</span>
+                            <span class="card-title">{{ __('Show') }} Empleado</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('empleados.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $producto->imagen }}
+                            <strong>Id Empleado:</strong>
+                            {{ $empleado->Id_empleado }}
                         </div>
                         <div class="form-group">
                             <strong>Nombre:</strong>
-                            {{ $producto->nombre }}
+                            {{ $empleado->Nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $producto->descripcion }}
+                            <strong>Numero Tel:</strong>
+                            {{ $empleado->Numero_tel }}
                         </div>
                         <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $producto->precio }}
+                            <strong>Email:</strong>
+                            {{ $empleado->Email }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Categoria:</strong>
-                            {{ $producto->Id_categoria }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Cant Disponible:</strong>
-                            {{ $producto->cant_disponible }}
+                            <strong>Direccion:</strong>
+                            {{ $empleado->Direccion }}
                         </div>
 
                     </div>

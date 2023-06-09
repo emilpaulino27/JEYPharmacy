@@ -18,10 +18,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate();
+        $categoria = Categoria::paginate();
 
-        return view('categoria.index', compact('categorias'))
-            ->with('i', (request()->input('page', 1) - 1) * $categorias->perPage());
+        return view('categoria.index', compact('categoria'))
+            ->with('i', (request()->input('page', 1) - 1) * $categoria->perPage());
     }
 
     /**

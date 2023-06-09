@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Producto
+    Pedido
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Producto') }}
+                                {{ __('Pedido') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('pedidos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,32 +36,32 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Imagen</th>
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
-										<th>Id Categoria</th>
-										<th>Cant Disponible</th>
+										<th>Id Pedido</th>
+										<th>Id Usuario</th>
+										<th>Fecha Pedido</th>
+										<th>Direccion</th>
+										<th>Estado Pedido</th>
+										<th>Opcion Pago</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productos as $producto)
+                                    @foreach ($pedidos as $pedido)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $producto->imagen }}</td>
-											<td>{{ $producto->nombre }}</td>
-											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
-											<td>{{ $producto->Id_categoria }}</td>
-											<td>{{ $producto->cant_disponible }}</td>
+											<td>{{ $pedido->Id_pedido }}</td>
+											<td>{{ $pedido->Id_usuario }}</td>
+											<td>{{ $pedido->Fecha_pedido }}</td>
+											<td>{{ $pedido->Direccion }}</td>
+											<td>{{ $pedido->Estado_pedido }}</td>
+											<td>{{ $pedido->Opcion_pago }}</td>
 
                                             <td>
-                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('pedidos.destroy',$pedido->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('pedidos.show',$pedido->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pedidos.edit',$pedido->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $productos->links() !!}
+                {!! $pedidos->links() !!}
             </div>
         </div>
     </div>
